@@ -5,10 +5,14 @@ Test Efficient Segmentation on Apple M-Series GPU
 Compare CPU vs MPS (Metal Performance Shaders) performance on macOS
 """
 
+import sys
+import os
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
+
 import torch
 import time
 import numpy as np
-from efficient_segmentation import FastSegNet
+from src.models.efficient_segmentation import FastSegNet
 
 
 def test_device_performance(model, device_name, input_shape=(1, 3, 512, 1024), iterations=100):

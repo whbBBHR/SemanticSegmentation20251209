@@ -60,7 +60,10 @@ Thumbs.db
 *.pkl
 *.pickle
 mapillary-vistas-v2/
-data/
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
 datasets/
 
 # Model files
@@ -70,10 +73,15 @@ datasets/
 *.h5
 *.pb
 *.onnx
-models/
-checkpoints/
+*.engine
+*.trt
+checkpoints/*
+!checkpoints/README.md
 
 # Logs
 *.log
-logs/
+logs/*
+!logs/README.md
 wandb/
+runs/
+tensorboard/
