@@ -17,6 +17,13 @@ from typing import Dict, List, Optional, Any
 from pathlib import Path
 import os
 
+# Try to load .env file if it exists
+try:
+    from .load_env import load_env
+    load_env()
+except:
+    pass
+
 
 class ClaudeAssistant:
     """
@@ -35,7 +42,7 @@ class ClaudeAssistant:
             raise ValueError("API key required. Set ANTHROPIC_API_KEY environment variable or pass api_key parameter")
         
         self.client = anthropic.Anthropic(api_key=self.api_key)
-        self.model = "claude-3-5-sonnet-20241022"
+        self.model = "claude-3-5-haiku-20241022"  # Fast, cost-effective model
     
     def encode_image(self, image_path: str) -> str:
         """Encode image to base64"""
